@@ -13,6 +13,12 @@ public class ProfileRepository
             [JsonPropertyName("companyName")]
             public string CompanyName { get; set; }
 
+            [JsonPropertyName("mktCap")] 
+            public double MarketCap { get; set; }
+
+            [JsonPropertyName("currency")]  
+            public string Currency { get; set; }
+
             [JsonPropertyName("exchangeShortName")]
             public string ExchangeShortName { get; set; }
 

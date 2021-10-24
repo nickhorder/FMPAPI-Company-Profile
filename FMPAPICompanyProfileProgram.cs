@@ -28,11 +28,11 @@ namespace FMPAPICompanyProfile
 
 
 /*      Build the URL, call Method CallAPI with input string URLCalled. foreach will build and send 
-*       discrete URLs based on string Symbols, that contains multiple tickers. HttpClient to make the call
+*       discrete URLs based on enumerator Tickers, that contains multiple tickers. HttpClient to make the call
 */
             {
                 string ProfileEndPoint = "https://financialmodelingprep.com/api/v3/profile/";
-                string APIKey = "apikey=NOTFORGITHUB";
+                string APIKey = "apikey=39464dcbe9e6ca8ea538e7bba66e4773";
                 string QuestionM = "?";
               
                 TickerStore Tickers = new TickerStore();
@@ -42,7 +42,7 @@ namespace FMPAPICompanyProfile
               //      {
                         string URLCalled = ProfileEndPoint + Ticker + QuestionM + APIKey;
                         var Profilerepos = await CallAPI(URLCalled);
-                        Console.WriteLine($"The URL " + URLCalled + " returns the following:");
+                        Console.WriteLine($"The URL " + URLCalled + "\n" + "Returns the following:");
               //      }
                 //    catch (Exception ex)
               //      {
@@ -63,9 +63,13 @@ namespace FMPAPICompanyProfile
                             string profilefilepath = @"C:\Users\X1 Carbon\OneDrive\Documents\FMPAPIProfile.csv";
                             using (StreamWriter file = new StreamWriter(profilefilepath, true))
                             {
-                                file.WriteLine($"Company:," + companyAttribute.CompanyName + ",");
-                                file.WriteLine($"Listed On:," + companyAttribute.ExchangeShortName + ",");
-                                file.WriteLine($"Description:," + companyAttribute.Description + ",");
+                            file.WriteLine($"Company:," + companyAttribute.CompanyName + "," 
+                              + "MarketCap " + companyAttribute.Currency + "(m):" + ","  
+                              + (companyAttribute.MarketCap / 1e6));
+                          //  file.WriteLine($"MarketCap (m):," + (companyAttribute.MarketCap / 1e6));
+                          //  file.WriteLine($"Currency:," + companyAttribute.Currency);
+                      //          file.WriteLine($"Listed On:," + "\n" + companyAttribute.ExchangeShortName + ",");
+                      //      file.WriteLine($"Description:," + "\n" + companyAttribute.Description + ",");
                             }
                         }
 
@@ -75,9 +79,13 @@ namespace FMPAPICompanyProfile
                         }
                         // Write values to Console
 
-                        Console.WriteLine($"Company: " + companyAttribute.CompanyName + "\n");
-                        Console.WriteLine($"Listed On: " + companyAttribute.ExchangeShortName + "\n");
-                        Console.WriteLine($"Description: " + companyAttribute.Description + "\n");
+                        Console.WriteLine($"Company: " + companyAttribute.CompanyName + "\n"
+                           + " MarketCap " + companyAttribute.Currency + "(m): "
+                           + (companyAttribute.MarketCap / 1e6));
+                    //    Console.WriteLine($"Company: " + companyAttribute.CompanyName + "\n");
+                    //    Console.WriteLine($"MarketCap: " + companyAttribute.MarketCap + "\n");
+                    //    Console.WriteLine($"Currency: " + companyAttribute.Currency + "\n");
+                
 
                     }
                 }

@@ -3,10 +3,7 @@
     string[] items;
     public TickerStore()
     {
-        items = new string[] {
-            "GSK.L",
-            "AZN.L",
-            "NXT.L",
+        items = new string[] {           
             "EXPN.L",
             "IDEA.L" };
     }
