@@ -49,12 +49,9 @@ namespace FMPAPICompanyProfile
                 //        throw new ApplicationException("Exception when attempting to call API :", ex);
               //      }
 
-                    /*      Output; the return from CallAPI is sent to CSV using the useful CsvHelper package.    
-                     *      Write to Console in addition.
-                     */
-
-                    //    ProfileRepository profiles = new ProfileRepository();
-
+/*      Output; the return from CallAPI is sent to CSV using the useful CsvHelper package.    
+*      Write to Console in addition.
+*/                 
                     foreach (var companyAttribute in Profilerepos)
                     {
                         try
@@ -66,10 +63,6 @@ namespace FMPAPICompanyProfile
                             file.WriteLine($"Company:," + companyAttribute.CompanyName + "," 
                               + "MarketCap " + companyAttribute.Currency + "(m):" + ","  
                               + (companyAttribute.MarketCap / 1e6));
-                          //  file.WriteLine($"MarketCap (m):," + (companyAttribute.MarketCap / 1e6));
-                          //  file.WriteLine($"Currency:," + companyAttribute.Currency);
-                      //          file.WriteLine($"Listed On:," + "\n" + companyAttribute.ExchangeShortName + ",");
-                      //      file.WriteLine($"Description:," + "\n" + companyAttribute.Description + ",");
                             }
                         }
 
@@ -81,14 +74,11 @@ namespace FMPAPICompanyProfile
 
                         Console.WriteLine($"Company: " + companyAttribute.CompanyName + "\n"
                            + " MarketCap " + companyAttribute.Currency + "(m): "
-                           + (companyAttribute.MarketCap / 1e6));
-                    //    Console.WriteLine($"Company: " + companyAttribute.CompanyName + "\n");
-                    //    Console.WriteLine($"MarketCap: " + companyAttribute.MarketCap + "\n");
-                    //    Console.WriteLine($"Currency: " + companyAttribute.Currency + "\n");
-                
-
+                           + (companyAttribute.MarketCap / 1e6) + "\n");                       
                     }
+                    
                 }
+           //     Console.WriteLine("End of API Calls");
             }
 
 /*
