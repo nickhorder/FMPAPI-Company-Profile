@@ -1,9 +1,12 @@
-﻿public class TickerStore
+﻿namespace FMPAPI
 {
-    string[] items;
-    public TickerStore()
+    public class TickerStoreProfile
     {
-        items = new string[] {
+    string[] items;
+    public TickerStoreProfile()
+{   
+            items = new string[] {
+
 "FOUR.L",
 "888.L",
 "ASL.L",
@@ -26,10 +29,10 @@
 "AVST.L",
 "AVV.L",
 "AGT.L",
-"AV..L",
+"AV.L",
 "BME.L",
 "BAB.L",
-"BA..L",
+"BA.L",
 "BGFD.L",
 "BAKK.L",
 "BBY.L",
@@ -50,7 +53,7 @@
 "BGSC.L",
 "BOY.L",
 "BVS.L",
-"BP..L",
+"BP.L",
 "BRW.L",
 "BATS.L",
 "BLND.L",
@@ -90,7 +93,7 @@
 "DGE.L",
 "DPLM.L",
 "DLG.L",
-"DC..L",
+"DC.L",
 "DOM.L",
 "DRX.L",
 "DNLM.L",
@@ -140,7 +143,7 @@
 "HLMA.L",
 "HMSO.L",
 "HVPE.L",
-"HL..L",
+"HL.L",
 "HSTG.L",
 "HAS.L",
 "HSL.L",
@@ -176,7 +179,7 @@
 "IWG.L",
 "JDW.L",
 "FSJ.L",
-"JD..L",
+"JD.L",
 "JLG.L",
 "JMAT.L",
 "JAM.L",
@@ -185,7 +188,7 @@
 "JFJ.L",
 "JEO.L",
 "JUP.L",
-"JE..L",
+"JE.L",
 "KNOS.L",
 "KAZ.L",
 "KGF.L",
@@ -215,7 +218,7 @@
 "MRW.L",
 "MYI.L",
 "NEX.L",
-"NG..L",
+"NG.L",
 "NBLS.L",
 "NETW.L",
 "NRR.L",
@@ -249,11 +252,11 @@
 "PRU.L",
 "PRTC.L",
 "PZC.L",
-"QQ..L",
+"QQ.L",
 "QLT.L",
 "RNK.L",
 "RAT.L",
-"RB..L",
+"RB.L",
 "RDW.L",
 "REL.L",
 "RSW.L",
@@ -264,7 +267,7 @@
 "RIO.L",
 "RCP.L",
 "RSE.L",
-"RR..L",
+"RR.L",
 "ROR.L",
 "RBS.L",
 "RDSa.L",
@@ -290,7 +293,7 @@
 "SHB.L",
 "SHI.L",
 "SRE.L",
-"SN..L",
+"SN.L",
 "SMDS.L",
 "SMIN.L",
 "SSON.L",
@@ -312,7 +315,7 @@
 "SYNT.L",
 "TALK.L",
 "TATE.L",
-"TW..L",
+"TW.L",
 "TBCG.L",
 "TEP.L",
 "TMPL.L",
@@ -332,7 +335,7 @@
 "ULE.L",
 "ULVR.L",
 "UTG.L",
-"UU..L",
+"UU.L",
 "VSVS.L",
 "VCT.L",
 "VEIL.L",
@@ -347,34 +350,35 @@
 "WMH.L",
 "WTAN.L",
 "WIZZ.L",
-"WG..L",
+"WG.L",
 "WKP.L",
 "WWH.L",
-"WPP.L"};
-    }
-    public TickerEnumerator GetEnumerator()
-    {
-        return new TickerEnumerator(this);
-    }
-
-// Declare the enumerator class:  
-    public class TickerEnumerator
-    {
-        int nIndex;
-        TickerStore collection;
-        public TickerEnumerator(TickerStore coll)
-        {
-            collection = coll;
-            nIndex = -1;
-        }
-        public bool MoveNext()
-        {
-            nIndex++;
-            return (nIndex < collection.items.Length);
+"WPP.L"
+ };
         }
 
-        public string Current => collection.items[nIndex];
+        public TickerEnumerator GetEnumerator()
+        {
+            return new TickerEnumerator(this);
+        }
+
+        // Declare the enumerator class:  
+        public class TickerEnumerator
+        {
+            int nIndex;
+            TickerStoreProfile collection;
+            public TickerEnumerator(TickerStoreProfile coll)
+            {
+                collection = coll;
+                nIndex = -1;
+            }
+            public bool MoveNext()
+            {
+                nIndex++;
+                return (nIndex < collection.items.Length);
+            }
+
+            public string Current => collection.items[nIndex];
+        }
     }
 }
-
-  

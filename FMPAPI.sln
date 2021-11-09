@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FMPAPI - Company Profile", "FMPAPI - Company Profile.csproj", "{D591BFE1-6200-4B46-B46D-F8FD7C1EC0A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FMP", "FMP.csproj", "{D591BFE1-6200-4B46-B46D-F8FD7C1EC0A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
