@@ -26,25 +26,25 @@ namespace FMPAPI
                 [JsonPropertyName("symbol")]
                public string Symbol { get; set; }
 
-                [JsonProperty("price")]
+                [JsonPropertyName("price")]
                 public double Price { get; set; }
 
-                [JsonProperty("beta")]
+                [JsonPropertyName("beta")]
                 public double Beta { get; set; }
 
-                [JsonProperty("volAvg")]
+                [JsonPropertyName("volAvg")]
                 public double VolAvg { get; set; }
 
                 [JsonPropertyName("mktCap")]
                 public double MarketCap { get; set; }
 
-                [JsonProperty("lastDiv")]
+                [JsonPropertyName("lastDiv")]
                 public double LastDiv { get; set; }
 
-                [JsonProperty("range")]
+                [JsonPropertyName("range")]
                 public string Range { get; set; }
 
-                [JsonProperty("changes")]
+                [JsonPropertyName("changes")]
                 public double Changes { get; set; }
 
                 [JsonPropertyName("companyName")]
@@ -53,10 +53,10 @@ namespace FMPAPI
                 [JsonPropertyName("currency")]
                 public string Currency { get; set; }
 
-                [JsonProperty("exchangeShortName")]
+                [JsonPropertyName("exchangeShortName")]
                 public string ExchangeShortName { get; set; }
 
-                [JsonProperty("description")]
+                [JsonPropertyName("description")]
                 public string Description { get; set; }
 
 
@@ -85,7 +85,10 @@ namespace FMPAPI
                 [JsonPropertyName("totalDebt")]
                 public double TotalDebt { get; set; }
 
-                // Values from Income Statement (Income-Statement as endpoint)
+
+
+
+            // Values from Income Statement (Income-Statement as endpoint)
 
                 [JsonPropertyName("reportedCurrency")]
                 public string ReportedCurrency { get; set; }

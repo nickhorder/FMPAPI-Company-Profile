@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.IO;
 using CsvHelper;
-using Newtonsoft.Json;
 
 namespace FMPAPI
 {
@@ -36,7 +32,7 @@ namespace FMPAPI
             string ProfileEndPoint = "https://financialmodelingprep.com/api/v3/profile/";
             string BalanceEndPoint = "https://financialmodelingprep.com/api/v3/balance-sheet-statement/";
             string IncomeEndPoint = "https://financialmodelingprep.com/api/v3/income-statement/";
-            string APIKey = "apikey=notsharedtogithub";
+            string APIKey = "apikey=notforgithub";
             string QuestionM = "?";
             double GBPUSD = 1.35;
             double GBPEUR = 1.17;
@@ -94,7 +90,9 @@ namespace FMPAPI
                     {
                         switch (returnProfCurr)
                         {
-                            case "GBp": return Math.Round(returnMarketCap / 1e6, 2);
+                            case "GBp": return Math.Round((returnMarketCap)/ 1e6, 2);
+                            case "EUR": return Math.Round((returnMarketCap / GBPEUR)/ 1e6, 2);
+                            case "USD": return Math.Round((returnMarketCap / GBPUSD) / 1e6, 2);
                             default: return 123456789;
                         }
                     }
@@ -366,9 +364,9 @@ namespace FMPAPI
 //Write values to CSV
 
                //    foreach (string Ticker2 in Tickers)
-                   {
+             {
                    try
-                   {
+                {
                    string profilefilepath = @"C:\Users\X1 Carbon\OneDrive\Documents\FMPAPIReturn.csv";
                    using (StreamWriter file = new StreamWriter(profilefilepath, true))
                     {
@@ -393,8 +391,8 @@ namespace FMPAPI
                     catch (Exception ex)
                      {
                      throw new ApplicationException("Exception when attempting to write to CSV (Profile Data):", ex);
-                      }
-                 }
+                     }
+             }
                   
 
                 }

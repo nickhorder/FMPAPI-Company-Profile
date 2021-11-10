@@ -3,12 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Linq;
 using System.Threading.Tasks;
-using System.IO;
-using CsvHelper;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+
 
 namespace FMPAPI
 {
