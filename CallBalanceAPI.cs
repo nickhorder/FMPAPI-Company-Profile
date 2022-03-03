@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace FMPAPI
 {
@@ -21,15 +21,15 @@ namespace FMPAPI
                var streamTask2 = client.GetStreamAsync($"{BalanceURI}");
                var balancerepos = await System.Text.Json.JsonSerializer.DeserializeAsync<List<JSONRepository>>(await streamTask2);
 /*
-            string jsonContent = string.Empty;
+                string jsonContent = string.Empty;
 
             var apiResponse = client.GetAsync($"{BalanceURI}").Result;
             if (apiResponse.IsSuccessStatusCode)
 
                 jsonContent = apiResponse.Content.ReadAsStringAsync().Result;
             var printObj = JsonConvert.DeserializeObject<List<JSONRepository>>(jsonContent);
+            Console.WriteLine(jsonContent);
 */
-
             return balancerepos;
 
                 }

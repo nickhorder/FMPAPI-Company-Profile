@@ -18,12 +18,12 @@ namespace FMPAPI
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
-            //          client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+         //   client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
 
             var streamTask1 = client.GetStreamAsync($"{ProfileURI}");
             var profilerepos = await JsonSerializer.DeserializeAsync<List<JSONRepository>>(await streamTask1);
+         //   var profilerepos = await System.Text.Json.JsonSerializer.DeserializeAsync<List<JSONRepository>>(await streamTask1);
 
-            
 
             return profilerepos;
         }
