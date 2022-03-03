@@ -27,12 +27,12 @@ namespace FMPAPI
         public static async Task Main(string[] args)
         {
             string CurrencyListEndPoint = "http://api.exchangeratesapi.io/v1/latest?";
-            string CurrencyAPIKey = "access_key=5b5abd7cd85c2626a7781f35cdc8e83e&format=1";
+            string CurrencyAPIKey = " removed from github";
             string StockListEndPoint = "https://financialmodelingprep.com/api/v3/stock/list?";
             string ProfileEndPoint = "https://financialmodelingprep.com/api/v3/profile/";
             string BalanceEndPoint = "https://financialmodelingprep.com/api/v3/balance-sheet-statement/";
             string IncomeEndPoint = "https://financialmodelingprep.com/api/v3/income-statement/";
-            string APIKey = "apikey=39464dcbe9e6ca8ea538e7bba66e4773";
+            string APIKey = " removed from github";
             string QuestionM = "?";
            
 //Call CurrencyAPI to get exchange rates (to EUR)
