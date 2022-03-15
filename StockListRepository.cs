@@ -39,6 +39,9 @@ namespace FMPAPI
         [JsonPropertyName("exchangeShortName")]
         public string ExchangeShortName { get; set; }
 
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+
 
     }
 }

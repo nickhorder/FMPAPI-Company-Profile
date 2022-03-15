@@ -43,16 +43,10 @@ namespace FMPAPI
                     }
 
                  return currencyrepos;
-                  
+               
                 }
-                
-
-            }
-            
+            }   
         }
-
     }
-
 }
 
-    

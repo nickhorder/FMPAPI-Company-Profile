@@ -23,7 +23,7 @@ namespace FMPAPI
                 public double VolAvg { get; set; }
 
                 [JsonPropertyName("mktCap")]
-                public double MarketCap { get; set; }
+                public double? MarketCap { get; set; }
 
                 [JsonPropertyName("lastDiv")]
                 public double LastDiv { get; set; }
@@ -88,9 +88,9 @@ namespace FMPAPI
                 public double Revenue { get; set; }
 /*
         public string[] LSEItems;
-        public JSONRepository(string ReportedCurrency)
+        public JSONRepository(string CompanyName)
         {
-            LSEItems = new string[] { ReportedCurrency };
+            LSEItems = new string[] { CompanyName };
         }
 
         public SymbolEnumerator GetEnumerator()
@@ -117,7 +117,7 @@ namespace FMPAPI
             public string Current => collection.LSEItems[nIndex];
 
         }
-   */
+ */ 
                
 
     }
