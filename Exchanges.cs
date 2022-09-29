@@ -15,6 +15,19 @@ namespace FMPAPI
 
                 SelectedCompanies = obj.ExchangeShortName switch
                 {
+                    "TSX" => obj.Symbol,
+                    "JPX" => obj.Symbol,
+                    "CPH" => obj.Symbol,
+                    "SEK" => obj.Symbol,
+                    "OSE" => obj.Symbol,
+                    "TLV" => obj.Symbol,
+                    "PRA" => obj.Symbol,
+                    "LIS" => obj.Symbol,
+                    "ATH" => obj.Symbol,
+                    "BUD" => obj.Symbol,
+                    "SIX" => obj.Symbol,
+                    "VIE" => obj.Symbol,
+                    "WSE" => obj.Symbol,
                     "LSE" => obj.Symbol,
                     "EURONEXT" => obj.Symbol,
                     "XETRA" => obj.Symbol,

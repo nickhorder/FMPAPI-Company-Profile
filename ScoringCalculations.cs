@@ -11,14 +11,14 @@ namespace FMPAPI
         //Profit Variation. This is the current Income divided by the average of the last 4 years Income. It's designed
         // To identify "shocks" in profit, which can explain why certain companies come out top for bumper, one-off
         // years that probably won't be repeated. Absolute value (percentage).
-        public static double ProfitVariation(double[] IncomeArray, 
-                                             out double ProfVariation, 
-                                             out double returnIncome)
+        public static double ProfitVariation(double[] IncomeOpProfitArray, 
+                                             double RecentOpProfit,
+                                             out double ProfVariation)
         {
-            double returnIncome1PYR = IncomeArray.ElementAt(1); //1st Previous Year Income
-            double returnIncome2PYR = IncomeArray.ElementAt(2); //2nd Previous Year Income
-            double returnIncome3PYR = IncomeArray.ElementAt(3); //3rd Previous Year Income
-            double returnIncome4PYR = IncomeArray.ElementAt(4); //4th Previous Year Income
+            double returnIncome1PYR = IncomeOpProfitArray.ElementAt(1); //1st Previous Year Income
+            double returnIncome2PYR = IncomeOpProfitArray.ElementAt(2); //2nd Previous Year Income
+            double returnIncome3PYR = IncomeOpProfitArray.ElementAt(3); //3rd Previous Year Income
+            double returnIncome4PYR = IncomeOpProfitArray.ElementAt(4); //4th Previous Year Income
             var arr = new double[]  { returnIncome1PYR,
                                       returnIncome2PYR,
                                       returnIncome3PYR,
@@ -27,15 +27,16 @@ namespace FMPAPI
             double Inc4YRAverage = (Queryable.Average(arr.AsQueryable())); //Average the array
             double Inc4YRAverage2 = Math.Abs(Inc4YRAverage) / 1e6; //Convert 4yr av earnings to abs value
 
-            //Return the first (most recent) profit
-            returnIncome = IncomeArray.FirstOrDefault();
+
 
             double ProfVarCalc =
-            Math.Round(returnIncome / 1e6, 2) / (Inc4YRAverage2); //Divide current profit with 4yr av
-            ProfVariation = ProfVarCalc * 100;
-            return (ProfVariation);
+            Math.Round(RecentOpProfit / 1e6, 2) / (Inc4YRAverage2); //Divide current profit with 4yr av
+            
+           ProfVariation = ProfVarCalc * 100;
+ 
+                return (ProfVariation);
         }
-
+        
         //Profit Variation Score. Bracketed scoring for result from Profit Variation.
         public static double ProfitVariationScore(double ProfVariation, 
                                                   out double ProfitVariationScore)
@@ -95,7 +96,7 @@ namespace FMPAPI
                 < 30 and >= 20 => -1,
                 < 20 and >= 10 => -2,
                 < 10 and >= 0 => -3,
-                < 0 => 1.0,
+                < 0 => -4,
                 _ => 999 // default value
             };
 
@@ -125,7 +126,7 @@ namespace FMPAPI
             RecentProfitScore = RecentProfitToMaxProfit switch
             {
                 >= 100 => 12.0,
-                < 100 and >= 90 => 6.0,
+                < 100 and >= 90 => 10.0,
                 < 90 and >= 80 => 9.0,
                 < 80 and >= 70 => 7.0,
                 < 70 and >= 60 => 5.0,
@@ -135,7 +136,7 @@ namespace FMPAPI
                 < 30 and >= 20 => -2,
                 < 20 and >= 10 => -4,
                 < 10 and >= 0 => -6,
-                < 0 => 1.0,
+                < 0 => -8,
                 _ => 999 // default value
             };
 

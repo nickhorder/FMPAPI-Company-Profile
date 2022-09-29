@@ -46,6 +46,20 @@ namespace FMPAPI
                 [JsonPropertyName("exchangeShortName")]
                 public string ExchangeShortName { get; set; }
 
+                [JsonPropertyName("industry")]
+                public string Industry { get; set; }
+
+                [JsonPropertyName("isEtf")]
+                public bool IsETF { get; set; }
+
+                [JsonPropertyName("isActivelyTrading")]
+                public bool IsActivelyTrading { get; set; }
+
+                [JsonPropertyName("sector")]
+                public string Sector { get; set; }
+
+  
+
                 [JsonPropertyName("description")]
                 public string Description { get; set; }
 
